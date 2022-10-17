@@ -6,8 +6,8 @@ from calculationFunc import *
 
 
 def main():
-    dimension = ask_dimension()
-    matrix = ask_matix(dimension)
+    dimension = ask_dimension(True)
+    matrix = ask_matix(dimension, True)
 
     ans = calcDeterminant(dimension, matrix)
     print(ans)
