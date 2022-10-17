@@ -1,7 +1,7 @@
 #coding:utf-8
 # Author : Yoshiyuki Kurose
 
-from inputMatrix import *
+from inputFunc import *
 from calculationFunc import *
 
 
