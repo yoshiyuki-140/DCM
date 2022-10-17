@@ -21,24 +21,21 @@ class CalculationUtil:
     def findCofactor(self, dimension: int, matrix: list, k: int):
         """
         # k >= 1
-        >>> CalculationUtil().findCofactor(3,[[1,2,3],[1,2,3],[1,3,4]],1)
-        [1, [2, 3], [3, 4]]
         >>> CalculationUtil().findCofactor(3,[[1,2,3],[1,2,3],[1,3,4]],2)
-        [-2, [1, 3], [1, 4]]
+        {'head': -2, 'matrix': [[1, 3], [1, 4]]}
+        >>> CalculationUtil().findCofactor(3,[[1,2,3],[1,2,3],[1,3,4]],1)
+        {'head': 1, 'matrix': [[2, 3], [3, 4]]}
         """
 
-        # v高速化のために
-        result = [pow(-1, k+1)*matrix[0][k-1]]
-        k = k-1
-        for i, y in enumerate(matrix):
-            if i == 0:
-                continue
-            else:
-                result.append([])
-            for j, x in enumerate(y):
-                if j == k:
-                    continue
-                result[i].append(x)
+        result = {'head':pow(-1, k+1)*matrix[0][k-1],'matrix':[[] for _ in range(dimension-1)]}
+        tmpMatrix = matrix
+        # 1行目を削除
+        del tmpMatrix[0]
+        # k列目を削除
+        for i in range(dimension-1):
+            del tmpMatrix[i][k-1]
+        result['matrix'] = tmpMatrix
+
         return result
 
     def findDeterminant(self, dimension: int, matrix: list):
