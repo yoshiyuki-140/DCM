@@ -27,7 +27,9 @@ class CalculationUtil:
         {'head': 1, 'matrix': [[2, 3], [3, 4]]}
         """
 
-        result = {'head':pow(-1, k+1)*matrix[0][k-1],'matrix':[[] for _ in range(dimension-1)]}
+        result = {
+            'head': pow(-1, k+1)*matrix[0][k-1], 
+            'matrix': [[] for _ in range(dimension-1)]}
         tmpMatrix = matrix
         # 1行目を削除
         del tmpMatrix[0]
