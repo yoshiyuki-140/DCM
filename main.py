@@ -2,7 +2,14 @@
 # Authoer : Yoshiyuki Kurose
 
 from inputMatrix import *
+from calculationFunc import CalculationUtil
 
-dimension = ask_dimension()
-matrix = ask_matix(dimension) 
+
+dimension = test_ask_dimension()
+matrix = test_ask_matix(dimension) 
+
+calcUtil = CalculationUtil()
+ans = calcUtil.calcDeterminant(dimension,matrix)
+print(ans)
+
 

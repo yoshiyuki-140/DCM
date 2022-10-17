@@ -12,3 +12,14 @@ def ask_matix(dimension:int):
                    for i in range(dimension)]
     return matrix
 
+def test_ask_dimension():
+    dimension = int(input())
+    if dimension < 1:
+        raise ValueError("The dimension must be more than 1")
+    return dimension
+
+def test_ask_matix(dimension:int):
+    matrix = [[int(x) for x in input().split()]
+                   for i in range(dimension)]
+    return matrix
+

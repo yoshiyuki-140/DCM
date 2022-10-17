@@ -28,9 +28,9 @@ class CalculationUtil:
         """
 
         result = {
-            'head': pow(-1, k+1)*matrix[0][k-1], 
-            'matrix': [[] for _ in range(dimension-1)]}
-        tmpMatrix = matrix
+            'head': pow(-1, k+1)*matrix[0][k-1],
+            'matrix': None}
+        tmpMatrix = deepcopy(matrix)
         # 1行目を削除
         del tmpMatrix[0]
         # k列目を削除
@@ -40,13 +40,21 @@ class CalculationUtil:
 
         return result
 
-    def findDeterminant(self, dimension: int, matrix: list):
+    def calcDeterminant(self, dimension: int, matrix: list):
+        result = []
         if dimension == 1:
             result = matrix
         elif dimension == 2:
             result = self.whenDimensionIsTwo(dimension, matrix)
         else:
-            pass
+            for i in range(1, dimension+1):
+                cofactor = self.findCofactor(dimension, matrix, i)
+                result.append(
+                    cofactor['head']*self.calcDeterminant(dimension-1, cofactor['matrix']))
+            result = sum(result)
+                
+
+        return result
 
 
 if __name__ == '__main__':
