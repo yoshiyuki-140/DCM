@@ -7,10 +7,11 @@ from calculationFunc import *
 
 def main():
     dimension = ask_dimension()
-    matrix = ask_matix(dimension) 
+    matrix = ask_matix(dimension)
 
-    ans = calcDeterminant(dimension,matrix)
+    ans = calcDeterminant(dimension, matrix)
     print(ans)
+
 
 if __name__ == "__main__":
     main()

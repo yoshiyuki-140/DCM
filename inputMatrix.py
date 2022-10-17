@@ -7,9 +7,8 @@ def ask_dimension():
         raise ValueError("The dimension must be more than 1")
     return dimension
 
-def ask_matix(dimension:int):
+
+def ask_matix(dimension: int):
     matrix = [[int(x) for x in input(f"Please input {i+1} row of the matrix >> ").split()]
-                   for i in range(dimension)]
+              for i in range(dimension)]
     return matrix
-
-
