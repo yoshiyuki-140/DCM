@@ -1,15 +1,16 @@
 #coding:utf-8
-# Authoer : Yoshiyuki Kurose
+# Author : Yoshiyuki Kurose
 
 from inputMatrix import *
-from calculationFunc import CalculationUtil
+from calculationFunc import *
 
 
-dimension = test_ask_dimension()
-matrix = test_ask_matix(dimension) 
+def main():
+    dimension = ask_dimension()
+    matrix = ask_matix(dimension) 
 
-calcUtil = CalculationUtil()
-ans = calcUtil.calcDeterminant(dimension,matrix)
-print(ans)
+    ans = calcDeterminant(dimension,matrix)
+    print(ans)
 
-
+if __name__ == "__main__":
+    main()
